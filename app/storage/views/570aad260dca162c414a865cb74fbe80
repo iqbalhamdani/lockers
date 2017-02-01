@@ -1,0 +1,57 @@
+<?php $__env->startSection('content'); ?>
+
+<section class="container">
+
+</br></br>
+
+<?php echo Form::open(array('action' => 'DocumentController@store', 'enctype' => 'multipart/form-data')); ?>
+
+
+<?php echo Form::file('document'); ?>
+
+
+<?php echo Form::submit('submit'); ?>
+
+
+<?php echo Form::close(); ?>
+
+
+</br>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Size</th>
+		<th>Path</th>
+		<th>Extension</th>
+		<th>Mime</th>
+		<th>Date</th>
+		
+		<th>#</th>
+	</tr>
+	
+	<?php foreach($documentsdata as $document): ?>
+	<tr>
+		<td><?php echo $document->name; ?></td>
+		<td><?php echo $document->size; ?></td>
+		<td><?php echo $document->path; ?></td>
+		<td><?php echo $document->extension; ?></td>
+		<td><?php echo $document->mime; ?></td>
+		<td><?php echo $document->created_at; ?></td>
+		<td>
+			<a href="uploads/document/<?php echo $document->name; ?>">download</a> |
+			<?php echo link_to_action('DocumentController@delete', 'delete', array($document->id)); ?>
+
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>
+
+</br>
+
+
+	
+</section>
+
+ <?php $__env->stopSection(); ?>
+<?php echo $__env->make('upload.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

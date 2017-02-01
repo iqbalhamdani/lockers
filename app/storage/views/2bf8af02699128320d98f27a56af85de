@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+ <meta charset='utf-8' />
+ <title>CRUD App</title>
+
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+ <?php echo HTML::style('css/bootstrap.min.css'); ?>
+
+
+</head>
+<body>
+
+<?php echo $__env->yieldContent('content'); ?>
+
+<?php echo HTML::script('js/jquery.min.js'); ?>
+
+<?php echo HTML::script('js/bootstrap.js'); ?>
+
+<?php echo HTML::script('js/modal.js'); ?>
+
+<?php echo HTML::script('js/transition.js'); ?>
+
+
+</body>
+</html>

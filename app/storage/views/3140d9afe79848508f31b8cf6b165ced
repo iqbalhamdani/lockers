@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+	
+	<table width="100%" class="search-table table table-responsive table-striped table-hover">
+		<thead>
+		<tr>
+			<th width="50%">Name</th>
+			<th width="20%">Status</th>
+			<th width="30%">Date</th>
+		</tr>
+		</thead>
+		
+		<tbody>
+		<?php foreach($recentsdata as $recent): ?>
+		<tr>
+			<td><coba><?php echo $recent->name; ?></coba></td>
+			<td><coba><?php echo $recent->status; ?></coba></td>
+			<td><coba><?php echo $recent->date; ?></coba></td>
+		</tr>
+		<?php endforeach; ?>
+		</tbody>
+		
+	</table>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('locker/layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

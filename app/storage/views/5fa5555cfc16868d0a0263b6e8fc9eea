@@ -1,0 +1,33 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="container">
+
+<form method="post" enctype="multipart/form-data" action="/upload_file">    
+	<input type="file" name="file" />    
+	<input type="submit" name="submit" value="upload" />
+</form>
+
+
+ <table class="table">
+    <tr>
+       <th>Name</th>
+       <th>File</th>
+       <th>Mime</th>
+       <th>Size</th>
+       <th>#</th>
+    </tr>
+	
+    <?php foreach($files as $book): ?>
+    <tr>
+         <td><?php echo $book->name; ?></td>
+         <td><?php echo $book->mime; ?></td>
+         <td><?php echo $book->size; ?></td>
+		 <td> <input type="submit" onclick="javascript:location.href='/getfile/<?php echo e($book); ?>'" /> </td>
+	</tr>
+    <?php endforeach; ?>
+</table>	
+
+</div>
+
+ <?php $__env->stopSection(); ?>
+<?php echo $__env->make('upload.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

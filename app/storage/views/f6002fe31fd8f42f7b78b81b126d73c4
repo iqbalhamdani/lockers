@@ -1,0 +1,33 @@
+<?php $__env->startSection('content'); ?>
+
+<div class='container'>
+
+<?php echo Form::open(array('action' => 'ImageController@store', 'enctype' => 'multipart/form-data')); ?>
+
+
+<?php echo Form::file('image'); ?>
+
+
+<?php echo Form::submit('submit'); ?>
+
+
+<?php echo Form::close(); ?>
+
+
+</br></br></br></br>
+
+ <table class="table">
+ 
+    <?php foreach($imagesdata as $image): ?>
+      <tr>
+         <td><?php echo $image->name; ?> </br>
+		  <img src="uploads/image/<?php echo $image->name; ?>" />
+		 </td>
+	</tr>
+    <?php endforeach; ?>
+
+ </table>
+ 
+ </div>
+ <?php $__env->stopSection(); ?>
+<?php echo $__env->make('upload.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
